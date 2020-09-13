@@ -1,17 +1,23 @@
-# music-piano-
-It is a Embedded Programming on UCFK4 which has ATmega32u2 microcontroller. It got a reset push button, a general-purpose pushbutton, a five-way navigation switch. The user can swtich the button to hit the randomly coming square with a music.
+# Piano Tiles
 
-<pre>
-For documentation, see http://ecewiki.elec.canterbury.ac.nz/mediawiki/index.php/UCFK4
+This implementation of piano tiles is for the UCFK4.
 
-The directory structure is:
-apps         --- contains a sub-directory for each application
-drivers      --- device driver modules (hardware independent)
-drivers/avr  --- device driver modules specifically for AVR architecture
-drivers/test --- device driver modules for test scaffold
-doc          --- documentation
-etc          --- miscellaneous scripts and makefile templates
-fonts        --- fonts and font creation program
-utils        --- utility modules
+The game initially allows you to select between "NORMAL MODE" and "AUTO MODE" (press up and down to change mode and pushing the joystick to select).
+* Normal mode will run the game as expected
+* Auto mode will automatically play the notes of a song for you
 
-</pre>
+Next, the song can be selected using the same controls as before. When the joystick is pushed, the two fun kits will synchronise and begin playing after a short countdown.
+
+The game consists of notes scrolling down the columns of the display.
+Each joystick direction corresponds to a different column and the appropriate direction must be selected to play the currently displayed note.
+
+From left to right, the joystick directions corresponding to each column are:
+
+Far Left | Mid Left | Middle | Mid Right | Far Right
+-------- | -------- | ------ | --------- | ---------
+   UP    |   LEFT   |  PUSH  |   RIGHT   |   DOWN
+
+
+- - - -
+
+The game can be compiled by running the `make` command and the fun kits can be programmed with `make program`.
